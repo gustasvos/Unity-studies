@@ -24,16 +24,14 @@ public class PlayerMovement : MonoBehaviour
         // moves horizontally when press A, D, or arrow keys left and right
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * moveSpeed;
-        Jump();
-    }
 
-    // Jumps when press W, spacebar or up arrow key
-    void Jump() {
+        // Jumps when press W, spacebar or up arrow key
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
              if (isGrounded == true) {
                 GetComponent<Rigidbody2D>().AddForce(jumpHeight, ForceMode2D.Impulse);
             }
         }
+
     }
 
     // the next two functions are used to know if the player is in the ground
